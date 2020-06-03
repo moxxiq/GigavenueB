@@ -6,7 +6,8 @@ namespace GigavenuePlanB
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            GigUser Me = new GigUser("me@me.com",1,"Dima","Bub");
+            Console.WriteLine($"User {Me.Firstname} created");
         }
     }
 }
