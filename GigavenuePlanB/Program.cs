@@ -19,7 +19,7 @@ namespace GigavenuePlanB
             Console.WriteLine("Будь ласка введіть дані для нового користувача в одному рядку");
             Console.WriteLine("email firstname lastname");
             // Valid File format email firstname lastname;
-            string[] line = Console.ReadLine().Split(' ');
+            string[] line = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
             try
             {
                 GigUser newUser = new GigUser(line[0], line[1],line[2], 12);
