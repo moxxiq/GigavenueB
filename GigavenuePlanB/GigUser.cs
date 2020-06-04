@@ -8,7 +8,7 @@ namespace GigavenuePlanB
         public GigUser(string email, string firstname, string lastname, int userId = 0)
         {
             Email = email;
-            UserID = userId;
+            UserId = userId;
             Firstname = firstname;
             Lastname = lastname;
         }
@@ -17,7 +17,7 @@ namespace GigavenuePlanB
         {
             if (readConsole)
             {
-                UserID = userId;
+                UserId = userId;
                 Console.WriteLine("Enter new user email: ");
                 Email = Console.ReadLine();
                 Console.WriteLine("Enter new user name: ");
@@ -28,7 +28,7 @@ namespace GigavenuePlanB
             else
             {
                 Email = "name@mail.com";
-                UserID = userId;
+                UserId = userId;
                 Firstname = "Usfisrtname";
                 Lastname = "Uslastname";
             }
@@ -36,10 +36,10 @@ namespace GigavenuePlanB
         public string Firstname { get; set; }
         public string Lastname { get; set; }
         public string Email { get; set; }
-        public int UserID { get; set; }
+        public int UserId { get; set; }
         public override string ToString()
         {
-            return $"{UserID} {Email} {Firstname} {Lastname}";
+            return $"{UserId.ToString()} {Email} {Firstname} {Lastname}";
         }
     }
 }
