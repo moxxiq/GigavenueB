@@ -4,7 +4,7 @@ namespace GigavenuePlanB
 {
     public class GigUser
     {
-        public GigUser(string email, int userId, string firstname, string lastname)
+        public GigUser(string email, string firstname, string lastname, int userId = 0)
         {
             Email = email;
             UserID = userId;
@@ -16,5 +16,9 @@ namespace GigavenuePlanB
         public string Lastname { get; set; }
         public string Email { get; set; }
         public int UserID { get; set; }
+        public override string ToString()
+        {
+            return $"{UserID} {Email} {Firstname} {Lastname}";
+        }
     }
 }
