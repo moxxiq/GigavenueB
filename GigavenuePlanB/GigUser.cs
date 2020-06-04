@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace GigavenuePlanB
 {
@@ -6,10 +7,32 @@ namespace GigavenuePlanB
     {
         public GigUser(string email, string firstname, string lastname, int userId = 0)
         {
-            Email = email;
             UserID = userId;
+            
+            Email = email;
             Firstname = firstname;
             Lastname = lastname;
+        }
+        
+        public GigUser(bool readConsole = false, int userId = 0)
+        {
+            if (readConsole)
+            {
+                UserID = userId;
+                Console.WriteLine("Enter new user email: ");
+                Email = Console.ReadLine();
+                Console.WriteLine("Enter new user name: ");
+                Firstname = Console.ReadLine();
+                Console.WriteLine("Enter new user lastname: ");
+                Lastname = Console.ReadLine();
+            }
+            else
+            {
+                Email = "name@mail.com";
+                UserID = userId;
+                Firstname = "Usfisrtname";
+                Lastname = "Uslastname";
+            }
         }
         public int UserId{ get; set; }
         public string Firstname { get; set; }
