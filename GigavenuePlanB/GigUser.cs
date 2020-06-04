@@ -7,9 +7,8 @@ namespace GigavenuePlanB
     {
         public GigUser(string email, string firstname, string lastname, int userId = 0)
         {
-            UserID = userId;
-            
             Email = email;
+            UserID = userId;
             Firstname = firstname;
             Lastname = lastname;
         }
@@ -34,7 +33,7 @@ namespace GigavenuePlanB
                 Lastname = "Uslastname";
             }
         }
-        public int UserId{ get; set; }
+        public int UserId{ get;}
         public string Firstname { get; set; }
         public string Lastname { get; set; }
         public string Email { get; set; }
