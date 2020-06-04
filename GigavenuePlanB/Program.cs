@@ -9,17 +9,17 @@ namespace GigavenuePlanB
         static void Main(string[] args)
         {
             Storage dataStorage = new Storage();
-            GigUser Me = new GigUser("me@me.com",1,"Dima","Bub");
-            Console.WriteLine($"User {Me.Firstname} created");
-            
+
             FileStream fileStream = new FileStream("users.txt", FileMode.Open);
             using (StreamReader reader = new StreamReader(fileStream))
             {
-                Console.WriteLine("Enter: email,firstname,lastname");
+                // Valid File format id,email,firstname,lastname;
                 string[] line = reader.ReadLine().Split(',');
-                Console.WriteLine(line[0]+" added");
-                dataStorage.Add(new GigUser(line[0], line[2],line[3]));
+                dataStorage.AddUser(new GigUser(line[1], line[2],line[3], int.Parse(line[0])));
             }
+
+            GigUser Me = dataStorage.AddUser("me@me.com","Dima","Bub");
+            Console.WriteLine($"User {Me.Firstname} created\n");
             dataStorage.WriteToConsole();
         }
     }

@@ -29,6 +29,19 @@ namespace GigavenuePlanB
             return newUser;
         }
 
+        public void AddUser(GigUser newUser)
+        {
+            if (usersStorage.Any() && usersStorage.Any(storedUser => storedUser.Email == newUser.Email))
+            {
+                throw new UserAlreadyExistsException("User with this email already exists"); 
+            }
+            if (usersStorage.Any() && usersStorage.Any(storedUser => storedUser.UserId == newUser.UserId))
+            {
+                throw new UserAlreadyExistsException("User with this id already exists");
+            }
+            usersStorage.Add(newUser);
+        }
+
         public void WriteToConsole()
         {
             this.usersStorage.ForEach(Console.WriteLine);
