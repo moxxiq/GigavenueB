@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 
 namespace GigavenuePlanB
 {
@@ -11,18 +12,16 @@ namespace GigavenuePlanB
         {
             Storage dataStorage = new Storage();
 
-            GigUser Me = dataStorage.AddUser("me@me.com","Dima","Bub");
-            Console.WriteLine($"User {Me.Firstname} created\n");
+            GigUser me = dataStorage.AddUser("me@me.com","Dima","Bub");
+            Console.WriteLine($"User {me} created\n");
             dataStorage.WriteToConsole();
             Console.WriteLine();
             
-            Console.WriteLine("Будь ласка введіть дані для нового користувача в одному рядку");
-            Console.WriteLine("email firstname lastname");
+            Console.WriteLine("Please enter data for new user \n");
             // Valid File format email firstname lastname;
-            string[] line = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
             try
             {
-                GigUser newUser = new GigUser(line[0], line[1],line[2], 12);
+                GigUser newUser = new GigUser(readConsole:true);
                 try
                 {
                     dataStorage.AddUser(newUser);
