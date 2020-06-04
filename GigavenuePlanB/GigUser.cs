@@ -7,14 +7,15 @@ namespace GigavenuePlanB
         public GigUser(string email, int userId, string firstname, string lastname)
         {
             Email = email;
-            UserID = userId;
+            userId = userId;
             Firstname = firstname;
             Lastname = lastname;
         }
-        public int UserId{ get; set; }
+
+        private int userId;
+        public int GetId()=>userId;
         public string Firstname { get; set; }
         public string Lastname { get; set; }
         public string Email { get; set; }
-        public int UserID { get; set; }
     }
 }
