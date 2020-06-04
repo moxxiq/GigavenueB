@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace GigavenuePlanB
 {
-    public class GigUser
+    public class GigUser : IStoragble
     {
         public GigUser(string email, string firstname, string lastname, int userId = 0)
         {
@@ -40,6 +40,12 @@ namespace GigavenuePlanB
         public override string ToString()
         {
             return $"{UserId.ToString()} {Email} {Firstname} {Lastname}";
+        }
+
+        public string ConvertForStorage()
+        {
+            // TODO
+            throw new NotImplementedException();
         }
     }
 }
