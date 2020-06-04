@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace GigavenuePlanB
 {
@@ -10,16 +11,33 @@ namespace GigavenuePlanB
         {
             Storage dataStorage = new Storage();
 
-            FileStream fileStream = new FileStream("users.txt", FileMode.Open);
-            using (StreamReader reader = new StreamReader(fileStream))
-            {
-                // Valid File format id,email,firstname,lastname;
-                string[] line = reader.ReadLine().Split(',');
-                dataStorage.AddUser(new GigUser(line[1], line[2],line[3], int.Parse(line[0])));
-            }
-
             GigUser Me = dataStorage.AddUser("me@me.com","Dima","Bub");
             Console.WriteLine($"User {Me.Firstname} created\n");
+            dataStorage.WriteToConsole();
+            Console.WriteLine();
+            
+            Console.WriteLine("Будь ласка введіть дані для нового користувача в одному рядку");
+            Console.WriteLine("email firstname lastname");
+            // Valid File format email firstname lastname;
+            string[] line = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            try
+            {
+                GigUser newUser = new GigUser(line[0], line[1],line[2], 12);
+                try
+                {
+                    dataStorage.AddUser(newUser);
+                }
+                catch (UserAlreadyExistsException exists)
+                {
+                    Console.WriteLine(exists);
+                }
+            }
+            catch (System.IndexOutOfRangeException)
+            {
+                Console.WriteLine("Less than 3 arguments entered");
+            }
+            
+            Console.WriteLine("\nAll users:");
             dataStorage.WriteToConsole();
         }
     }
