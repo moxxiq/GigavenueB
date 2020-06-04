@@ -10,12 +10,12 @@ namespace GigavenuePlanB
         public Storage()
         {
             // import old data then calc max ID
-            nextID = 0;
+            nextId = 0;
             this.usersStorage = new List<GigUser>();
 
         }
 
-        private static int nextID;
+        private static int nextId;
         private List<GigUser> usersStorage;
 
         public GigUser AddUser(string email, string firstname, string lastname)
@@ -24,7 +24,7 @@ namespace GigavenuePlanB
             {
                 throw new UserAlreadyExistsException("User with this email already exists"); 
             }
-            GigUser newUser = new GigUser(email, firstname, lastname, ++nextID);
+            GigUser newUser = new GigUser(email, firstname, lastname, ++nextId);
             usersStorage.Add(newUser);
             return newUser;
         }
@@ -35,7 +35,7 @@ namespace GigavenuePlanB
             {
                 throw new UserAlreadyExistsException("User with this email already exists"); 
             }
-            if (usersStorage.Any() && usersStorage.Any(storedUser => storedUser.UserID == newUser.UserID))
+            if (usersStorage.Any() && usersStorage.Any(storedUser => storedUser.UserId == newUser.UserId))
             {
                 throw new UserAlreadyExistsException("User with this id already exists");
             }
