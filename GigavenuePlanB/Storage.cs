@@ -35,7 +35,7 @@ namespace GigavenuePlanB
             {
                 throw new UserAlreadyExistsException("User with this email already exists"); 
             }
-            if (usersStorage.Any() && usersStorage.Any(storedUser => storedUser.UserId == newUser.UserId))
+            if (usersStorage.Any() && usersStorage.Any(storedUser => storedUser.getIdentifier() == newUser.getIdentifier()))
             {
                 throw new UserAlreadyExistsException("User with this id already exists");
             }

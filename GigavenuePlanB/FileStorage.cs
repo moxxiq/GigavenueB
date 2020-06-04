@@ -3,20 +3,34 @@ using System.IO;
 
 namespace GigavenuePlanB
 {
-    public abstract class FileStorage : IStorage
+    public class FileStorage : IStorage<int,string>
     {
-        private string file_path = "";
 
         public void Add()
         {
         }
 
-        public void Add(IStoragble data)
+        public void Add(IStoragble<int> data, string castTo)
         {
-            using (StreamWriter sw = new StreamWriter(file_path))
+            
+            using (StreamWriter sw = new StreamWriter(castTo))
             {
                 sw.WriteLine(data.ConvertForFileStorage());
             }
+        }
+
+        public IStoragble<int> Get(int identifier, string castTo)
+        {
+            string result = "";
+            using (StreamReader sr = new StreamReader(castTo)) {
+                while ((result = sr.ReadLine()) != null) {
+                    // TODO
+                    Console.WriteLine(result);
+                }
+            }
+            Console.ReadKey();
+            IStoragble<int> res = new GigUser(readConsole:true);
+            return res;
         }
     }
 }
