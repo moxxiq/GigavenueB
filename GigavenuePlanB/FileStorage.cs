@@ -10,10 +10,10 @@ namespace GigavenuePlanB
         {
         }
 
-        public void Add(IStoragble<int> data, string castTo)
+        public void Add(IStoragble<int> data)
         {
             
-            using (StreamWriter sw = new StreamWriter(castTo))
+            using (StreamWriter sw = new StreamWriter(data.returnFileStoragePath()))
             {
                 sw.WriteLine(data.ConvertForFileStorage());
             }

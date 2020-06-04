@@ -6,6 +6,7 @@
         //public ... ConvertForDbStorage(); 
         public int getIdentifier();
         public void setIdentifier(TIdentifier identifier);
-
+        public string returnFileStoragePath();
+        //public ... returnDbTablePath(); 
     }
 }

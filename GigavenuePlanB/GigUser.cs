@@ -5,7 +5,7 @@ namespace GigavenuePlanB
 {
     public class GigUser : IStoragble<int>
     {
-        
+        private const string FileStoragePath = "users.txt";
         
         public GigUser(string email, string firstname, string lastname, int userId = 0)
         {
@@ -44,9 +44,9 @@ namespace GigavenuePlanB
             return $"{userId.ToString()},{Email},{Firstname},{Lastname}";
         }
         
-        public static string returnFileStoragePath()
+        public string returnFileStoragePath()
         {
-            return "users.txt";
+            return FileStoragePath;
         }
 
         public string ConvertForStorage()

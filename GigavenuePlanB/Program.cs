@@ -22,7 +22,7 @@ namespace GigavenuePlanB
             
             FileStorage fileStorage = new FileStorage();
             
-            fileStorage.Add(new GigUser(readConsole:true), GigUser.returnFileStoragePath());
+            fileStorage.Add(new GigUser(readConsole:true));
             
             //try
             //{
