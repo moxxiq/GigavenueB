@@ -9,14 +9,18 @@ namespace GigavenuePlanB
         public void Add()
         {
         }
+        
+        
 
-        public void Add(IStoragble<int> data)
+        public IStoragble<int> Add(IStoragble<int> data)
         {
-            
+            IStoragble<int> result = data;
             using (StreamWriter sw = new StreamWriter(data.returnFileStoragePath()))
             {
                 sw.WriteLine(data.ConvertForFileStorage());
             }
+
+            return result;
         }
 
         public IStoragble<int> Get(int identifier, string castTo)
@@ -31,6 +35,16 @@ namespace GigavenuePlanB
             Console.ReadKey();
             IStoragble<int> res = new GigUser(readConsole:true);
             return res;
+        }
+
+        public void Delete(int identifier, string castTo)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IStoragble<int> Update(int identifier, string castTo)
+        {
+            throw new NotImplementedException();
         }
     }
 }

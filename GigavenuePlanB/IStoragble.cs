@@ -6,7 +6,7 @@
         //public ... ConvertForDbStorage(); 
         public int getIdentifier();
         public void setIdentifier(TIdentifier identifier);
-        public string returnFileStoragePath();
+        public string returnFileStoragePath(); // ALWAYS REALIZE STATIC ANALOGY
         //public ... returnDbTablePath(); 
     }
 }
