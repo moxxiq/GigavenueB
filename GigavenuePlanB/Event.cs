@@ -12,6 +12,7 @@ namespace GigavenuePlanB
             Name = name;
             Information = information;
             Zones = zones;
+            events = new List<Event>();
         }
         
         public int EventId { get;set;}
@@ -20,12 +21,14 @@ namespace GigavenuePlanB
         public string Image { get; set; }
         public string Information { get; set; }
         public DateTime EventDate { get; set; }
+
+        public List<Event> events { get;  }
         
         public List<ZoneComponent> Zones { get; set; }
 
         public void printZones()
         {
-            foreach (zone in Zones)
+            foreach (ZoneComponent zone in Zones)
             {
                 Console.WriteLine(zone.toString());
             }
@@ -33,9 +36,15 @@ namespace GigavenuePlanB
         
         public Invitation bookTicket(int zone, GigUser user)
         {
-            return Zones[zone].bookSeat(user);
+            return Zones[zone].BookSeat(user.UserId);
         }
 
+        public Event createEvent()
+        {
+            ExampleEventBuilder  evbld = new ExampleEventBuilder();
+            
+        }
+        
 
     }
 }

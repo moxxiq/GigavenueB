@@ -25,7 +25,9 @@ namespace GigavenuePlanB
 
             void Scenario()
             {
-                
+                GigUser dima = new GigUser("dima@me.com","Dima","Bub");
+                ExampleEventBuilder bldr = new ExampleEventBuilder();
+                Event dimaEv = bldr.getEvent();
             }
             
             

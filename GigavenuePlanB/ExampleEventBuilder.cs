@@ -6,6 +6,8 @@ namespace GigavenuePlanB
     public class ExampleEventBuilder: IEventBuilder
     {
         public ExampleEventBuilder(){
+            Console.WriteLine("Print id :");
+            evId = Int32.Parse(Console.ReadLine());
             ev = new Event("none",new List<ZoneComponent>());
             startBuilding();
         }
@@ -27,8 +29,8 @@ namespace GigavenuePlanB
                         information = Console.ReadLine();
                         break;
                     case "3":
-                        ExampleZoneBuilder bld = new ExampleZoneBuilder();
-                        zones = ExampleZoneBuilder.
+                        ExampleZoneBuilder bld = new ExampleZoneBuilder(evId);
+                        zones = bld.getZone();
                         break;
                     default:
                         Console.WriteLine("Wrong input: ");
@@ -41,6 +43,7 @@ namespace GigavenuePlanB
             
         }
 
+        private int evId; 
         private Event ev; 
         private string name;
         private string information;
