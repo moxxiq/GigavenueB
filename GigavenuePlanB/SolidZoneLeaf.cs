@@ -15,7 +15,7 @@ namespace GigavenuePlanB
         public int EventId { get; }
         public override Invitation BookSeat(int userId)
         {
-            return Invitation();
+            return new Invitation(EventId, Number, userId);
         }
         public override int FreeSitsCount ()
         {
