@@ -45,7 +45,7 @@ namespace GigavenuePlanB
             Console.WriteLine($"Hey, {Firstname}, for {ev.Name}, there are these zones:");
             ev.printZones();
             Console.WriteLine($"Which one you want to buy? ");
-            ev.bookTicket(int.Parse(Console.ReadLine()),this);
+            _invitations.Add( ev.bookTicket(int.Parse(Console.ReadLine()),this));
         }
         
         public override string ToString()
@@ -58,7 +58,14 @@ namespace GigavenuePlanB
             ExampleEventBuilder  evbld = new ExampleEventBuilder();
             return evbld.getEvent();
         }
-        
+
+        public void invitations()
+        {
+            foreach (Invitation inv in _invitations)
+            {
+                Console.WriteLine(inv.ToString());
+            }
+        }
         
 
         private List<Invitation> _invitations;

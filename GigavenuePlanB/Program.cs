@@ -30,6 +30,8 @@ namespace GigavenuePlanB
                 Event dimaEv = bldr.getEvent();
                 dimaEv.printZones();
                 dima.buyTicket(dimaEv);
+
+                dima.GetHashCode();
             }
             
             
