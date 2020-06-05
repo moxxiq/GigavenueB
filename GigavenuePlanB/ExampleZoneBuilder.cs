@@ -35,10 +35,8 @@ namespace GigavenuePlanB
                 Console.WriteLine("Enter what u want to edit for Event \n 1 - name \n 2 - Information \n 3 - zone \n 4 - finish");
                 result = Console.ReadLine();
             }
-            
-            
 
-            
+
         }
         
         private List<ZoneComponent> zones;

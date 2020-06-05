@@ -28,6 +28,8 @@ namespace GigavenuePlanB
                 GigUser dima = new GigUser("dima@me.com","Dima","Bub");
                 ExampleEventBuilder bldr = new ExampleEventBuilder();
                 Event dimaEv = bldr.getEvent();
+                dimaEv.printZones();
+                dima.buyTicket(dimaEv);
             }
             
             
