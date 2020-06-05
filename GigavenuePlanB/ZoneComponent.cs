@@ -28,7 +28,7 @@ namespace GigavenuePlanB
 
         public override string ToString()
         {
-            return $"N:{Number.ToString()} EID:{EventId.ToString()} Seats left: {FreeSeatsCount().ToString()}";
+            return $"Nomer: {Number.ToString()},  EID:{EventId.ToString()},  Seats left: {FreeSeatsCount().ToString()}";
         }
     }
 }
