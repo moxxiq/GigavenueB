@@ -21,10 +21,10 @@ namespace GigavenuePlanB
             // Valid File format email firstname lastname;
             
             FileStorage fileStorage = new FileStorage();
-            DbStorage dbStorage = new DbStorage();
+            //DbStorage dbStorage = new DbStorage();
             
             fileStorage.Add(new GigUser(readConsole:true));
-            dbStorage.Add(new GigUser(readConsole:true));
+            //dbStorage.Add(new GigUser(readConsole:true));
             
             //try
             //{

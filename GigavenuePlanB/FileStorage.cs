@@ -4,23 +4,24 @@ using System.Linq;
 
 namespace GigavenuePlanB
 {
-    public class FileStorage : IStorage<int,string>
+    public class FileStorage : IStorage
     {
 
         public void Add()
         {
         }
 
-        private int nextId(IStoragble<int> data)
+        public int nextId(string castTo)
         {
             // finds max id in all records in the file, return incrementeds
-            return File.ReadLines(data.returnFileStoragePath()).Max(line =>
-                int.Parse(line.Split(' ', StringSplitOptions.RemoveEmptyEntries)[0]))+1;
+            return File.ReadLines(castTo).Max(line =>
+                int.Parse(line.Split(',', StringSplitOptions.RemoveEmptyEntries)[0]));
         }
 
-        public IStoragble<int> Add(IStoragble<int> data)
+        public IStoragble Add(IStoragble data)
         {
-            IStoragble<int> result = data;
+            data.setIdentifier(nextId(data.returnFileStoragePath()));
+            IStoragble result = data;
             using (StreamWriter sw = new StreamWriter(data.returnFileStoragePath()))
             {
                 sw.WriteLine(data.ConvertForFileStorage());
@@ -29,17 +30,13 @@ namespace GigavenuePlanB
             return result;
         }
 
-        public IStoragble<int> Get(int identifier, string castTo)
+        public IStoragble Get(int identifier, string castTo)
         {
             string result = "";
-            using (StreamReader sr = new StreamReader(castTo)) {
-                while ((result = sr.ReadLine()) != null) {
-                    // TODO
-                    Console.WriteLine(result);
-                }
-            }
+            string line = File.ReadLines(castTo).Where(line => int.Parse(line.Split(',', StringSplitOptions.RemoveEmptyEntries))[0]==identifier).ToString();
+            
             Console.ReadKey();
-            IStoragble<int> res = new GigUser(readConsole:true);
+            IStoragble res = new GigUser(readConsole:true);
             return res;
         }
 
@@ -48,7 +45,7 @@ namespace GigavenuePlanB
             throw new NotImplementedException();
         }
 
-        public IStoragble<int> Update(int identifier, string castTo)
+        public IStoragble Update(int identifier, string castTo)
         {
             throw new NotImplementedException();
         }

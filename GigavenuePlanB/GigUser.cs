@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace GigavenuePlanB
 {
-    public class GigUser : IStoragble<int>
+    public class GigUser : IStoragble
     {
         private const string FileStoragePath = "users.txt";
         
