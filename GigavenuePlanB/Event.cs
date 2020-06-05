@@ -28,7 +28,7 @@ namespace GigavenuePlanB
 
         public void printZones()
         {
-            int i = 0;
+            int i = 1;
             foreach (ZoneComponent zone in Zones)
             {
                 Console.WriteLine($"{i} - {zone.ToString()}");
