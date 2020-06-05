@@ -14,7 +14,7 @@ namespace GigavenuePlanB
             {
                 for (int j = 0; j < size; j++)
                 {
-                    bookedSeats[i,j] = false;
+                    bookedSeats[i,j] = true;
                 }
             }
         }
@@ -32,9 +32,9 @@ namespace GigavenuePlanB
             {
                 for (int j = 0; j < this.Size; j++)
                 {
-                    if (bookedSeats[i, j] == false)
+                    if (bookedSeats[i, j])
                     {
-                        bookedSeats[i, j] = true;
+                        bookedSeats[i, j] = false;
                         return new Invitation(EventId, Number, userId);
                     }
                 }
@@ -48,7 +48,7 @@ namespace GigavenuePlanB
             {
                 for (int j = 0; j < Size; j++)
                 {
-                    if (bookedSeats[i, j] == true)
+                    if (bookedSeats[i, j])
                     {
                         f++;
                     }

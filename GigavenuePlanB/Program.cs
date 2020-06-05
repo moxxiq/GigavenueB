@@ -25,6 +25,11 @@ namespace GigavenuePlanB
 
             void Scenario()
             {
+                //Console.WriteLine("Choose functions: \n 1 - execprions \n 2 - event creation and ticket buying (Scenario) \n ");
+                
+                
+                
+                
                 GigUser dima = new GigUser("dima@me.com","Dima","Bub");
                 ExampleEventBuilder bldr = new ExampleEventBuilder();
                 Event dimaEv = bldr.getEvent();
