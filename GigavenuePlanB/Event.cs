@@ -7,7 +7,7 @@ namespace GigavenuePlanB
 {
     public class Event
     {
-        public Event(string name, string information = "None", List<ZoneComponent> zones = [new SolidZone()])
+        public Event(string name, List<ZoneComponent> zones, string information = "None")
         {
             Name = name;
             Information = information;

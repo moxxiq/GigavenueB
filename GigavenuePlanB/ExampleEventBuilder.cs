@@ -6,12 +6,12 @@ namespace GigavenuePlanB
     public class ExampleEventBuilder: IEventBuilder
     {
         public ExampleEventBuilder(){
-            
+            ev = new Event("none",new List<ZoneComponent>());
+            startBuilding();
         }
 
         public void startBuilding()
         {
-            ev = new Event("none");
             Console.WriteLine("Enter what u want to edit for Event \n 1 - name \n 2 - Information \n 3 - zone \n 4 - finish");
             string result = Console.ReadLine();
             while (result != "4")
@@ -27,8 +27,8 @@ namespace GigavenuePlanB
                         information = Console.ReadLine();
                         break;
                     case "3":
-                        ZoneBuilder bld = new ZoneBuilder();
-                        zones = ZoneBuilder.getZone();
+                        ExampleZoneBuilder bld = new ExampleZoneBuilder();
+                        zones = ExampleZoneBuilder.
                         break;
                     default:
                         Console.WriteLine("Wrong input: ");
@@ -37,9 +37,7 @@ namespace GigavenuePlanB
                 Console.WriteLine("Enter what u want to edit for Event \n 1 - name \n 2 - Information \n 3 - zone \n 4 - finish");
                 result = Console.ReadLine();
             }
-            
-            
-
+            ev = new Event(name, zones, information);
             
         }
 
@@ -48,9 +46,9 @@ namespace GigavenuePlanB
         private string information;
         private List<ZoneComponent> zones;
 
-        public void getEvent()
+        public Event getEvent()
         {
-            throw new System.NotImplementedException();
+            return  ev;
         }
     }
 }
