@@ -24,6 +24,11 @@ namespace GigavenuePlanB
             return result;
         }
 
+        public override Invitation BookSeat(int userId)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public override string ToString()
         {
             string result = "";

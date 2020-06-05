@@ -13,14 +13,8 @@ namespace GigavenuePlanB
         public virtual int Number { get;}
         public virtual  int Capacity{ get; }
         public virtual  int EventId { get; }
-        public virtual Invitation BookSeat(int userId)
-        {
-            throw new NotImplementedException();
-        }
-        public virtual int FreeSeatsCount ()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract Invitation BookSeat(int userId);
+        public abstract int FreeSeatsCount();
         public virtual bool IsComposite()
         {
             return true;

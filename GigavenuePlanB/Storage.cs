@@ -48,7 +48,6 @@ namespace GigavenuePlanB
         }
     }
 
-    [Serializable]
     public class UserAlreadyExistsException : Exception
     {
         public UserAlreadyExistsException()
