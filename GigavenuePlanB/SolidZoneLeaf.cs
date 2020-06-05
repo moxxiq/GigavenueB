@@ -24,7 +24,7 @@ namespace GigavenuePlanB
 
             return null;
         }
-        public override int FreeSitsCount ()
+        public override int FreeSeatsCount ()
         {
             return Capacity-seatsBooked;
         }

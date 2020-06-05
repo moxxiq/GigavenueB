@@ -14,12 +14,12 @@ namespace GigavenuePlanB
         {
             this.childrenZones.Remove(component);
         }
-        public override int FreeSitsCount()
+        public override int FreeSeatsCount()
         {
             int result = 0;
             foreach (ZoneComponent component in this.childrenZones)
             {
-                result += component.FreeSitsCount();
+                result += component.FreeSeatsCount();
             }
             return result;
         }
