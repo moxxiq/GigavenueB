@@ -31,7 +31,9 @@ namespace GigavenuePlanB
                 dimaEv.printZones();
                 dima.buyTicket(dimaEv);
 
-                dima.GetHashCode();
+                dima.invitations();
+                
+                dimaEv.printZones();
             }
             
             

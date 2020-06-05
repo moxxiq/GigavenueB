@@ -28,15 +28,17 @@ namespace GigavenuePlanB
 
         public void printZones()
         {
+            int i = 0;
             foreach (ZoneComponent zone in Zones)
             {
-                Console.WriteLine(zone.ToString());
+                Console.WriteLine($"{i} - {zone.ToString()}");
+                i++;
             }
         }
         
         public Invitation bookTicket(int zone, GigUser user)
         {
-            return Zones[zone].BookSeat(user.UserId);
+            return Zones[zone-1].BookSeat(user.UserId);
         }
         
         
