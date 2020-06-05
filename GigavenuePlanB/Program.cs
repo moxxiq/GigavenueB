@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -10,34 +11,56 @@ namespace GigavenuePlanB
     {
         static void Main(string[] args)
         {
-            Storage dataStorage = new Storage();
-
-            GigUser me = dataStorage.AddUser("me@me.com","Dima","Bub");
-            Console.WriteLine($"User {me} created\n");
-            dataStorage.WriteToConsole();
-            Console.WriteLine();
-            
-            Console.WriteLine("Please enter data for new user \n");
-            // Valid File format email firstname lastname;
-            try
+            Console.WriteLine("Choose functions: \n 1 - execprions \n 2 - event creation and ticket buying (Scenario) \n ");
+            switch (Console.ReadLine())
             {
-                GigUser newUser = new GigUser(readConsole:true);
+                case "1":
+                    Exceptions();
+                    break;
+                case "2":
+                    Scenario();
+                    break;
+            }
+
+
+            void Scenario()
+            {
+                
+            }
+            
+            
+            
+            void Exceptions()
+            {
+                Storage dataStorage = new Storage();
+
+                GigUser me = dataStorage.AddUser("me@me.com","Dima","Bub");
+                Console.WriteLine($"User {me} created\n");
+                dataStorage.WriteToConsole();
+                Console.WriteLine();
+            
+                Console.WriteLine("Please enter data for new user \n");
+                // Valid File format email firstname lastname;
                 try
                 {
-                    dataStorage.AddUser(newUser);
+                    GigUser newUser = new GigUser(readConsole:true);
+                    try
+                    {
+                        dataStorage.AddUser(newUser);
+                    }
+                    catch (UserAlreadyExistsException exists)
+                    {
+                        Console.WriteLine(exists);
+                    }
                 }
-                catch (UserAlreadyExistsException exists)
+                catch (System.IndexOutOfRangeException)
                 {
-                    Console.WriteLine(exists);
+                    Console.WriteLine("Less than 3 arguments entered");
                 }
-            }
-            catch (System.IndexOutOfRangeException)
-            {
-                Console.WriteLine("Less than 3 arguments entered");
-            }
             
-            Console.WriteLine("\nAll users:");
-            dataStorage.WriteToConsole();
+                Console.WriteLine("\nAll users:");
+                dataStorage.WriteToConsole();
+            }
         }
     }
 }
