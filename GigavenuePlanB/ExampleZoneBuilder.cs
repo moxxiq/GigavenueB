@@ -32,7 +32,7 @@ namespace GigavenuePlanB
                         Console.WriteLine("Wrong input: ");
                         break;
                 }
-                Console.WriteLine("Enter what u want to edit for Event \n 1 - name \n 2 - Information \n 3 - zone \n 4 - finish");
+                Console.WriteLine("Enter if u want to add more Zones \n 1 - solid \n 2 - matrix \n 3 - finish");
                 result = Console.ReadLine();
             }
 
