@@ -30,7 +30,7 @@ namespace GigavenuePlanB
         {
             foreach (ZoneComponent zone in Zones)
             {
-                Console.WriteLine(zone.toString());
+                Console.WriteLine(zone.ToString());
             }
         }
         
@@ -38,12 +38,7 @@ namespace GigavenuePlanB
         {
             return Zones[zone].BookSeat(user.UserId);
         }
-
-        public Event createEvent()
-        {
-            ExampleEventBuilder  evbld = new ExampleEventBuilder();
-            
-        }
+        
         
 
     }

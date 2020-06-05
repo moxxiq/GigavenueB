@@ -53,6 +53,12 @@ namespace GigavenuePlanB
             return $"{UserId.ToString()} {Email} {Firstname} {Lastname}";
         }
         
+        public Event createEvent()
+        {
+            ExampleEventBuilder  evbld = new ExampleEventBuilder();
+            return evbld.getEvent();
+        }
+        
         
 
         private List<Invitation> _invitations;
