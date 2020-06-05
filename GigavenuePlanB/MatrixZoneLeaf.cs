@@ -38,7 +38,7 @@ namespace GigavenuePlanB
             }
             return null;
         }
-        public override int FreeSitsCount ()
+        public override int FreeSeatsCount ()
         {
             int f = 0;
             for (int i = 0; i < Size; i++)

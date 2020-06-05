@@ -17,7 +17,7 @@ namespace GigavenuePlanB
         {
             throw new NotImplementedException();
         }
-        public virtual int FreeSitsCount ()
+        public virtual int FreeSeatsCount ()
         {
             throw new NotImplementedException();
         }
@@ -26,5 +26,9 @@ namespace GigavenuePlanB
             return true;
         }
 
+        public override string ToString()
+        {
+            return $"N:{Number.ToString()} EID:{EventId.ToString()} Seats left: {FreeSeatsCount().ToString()}";
+        }
     }
 }
