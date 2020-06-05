@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 
 namespace GigavenuePlanB
 {
@@ -9,8 +10,13 @@ namespace GigavenuePlanB
         public void Add()
         {
         }
-        
-        
+
+        private int nextId(IStoragble<int> data)
+        {
+            // finds max id in all records in the file, return incrementeds
+            return File.ReadLines(data.returnFileStoragePath()).Max(line =>
+                int.Parse(line.Split(' ', StringSplitOptions.RemoveEmptyEntries)[0]))+1;
+        }
 
         public IStoragble<int> Add(IStoragble<int> data)
         {
