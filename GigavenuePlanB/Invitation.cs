@@ -6,8 +6,14 @@ namespace GigavenuePlanB
 {
     public class Invitation
     {
-        public Invitation()
+        public Invitation(int eventId, int zoneId, int userId)
         {
+            var rand = new Random();
+
+            EventId = eventId;
+            ZoneId = zoneId;
+            UserId = userId;
+            Sha512key = $"|={rand.Next(10000,99999).ToString()}={EventId.ToString()}={ZoneId.ToString()}={UserId.ToString()}=|";
         }
         public int InvitationId { get; set; }
         public int EventId { get; set; }
@@ -15,5 +21,10 @@ namespace GigavenuePlanB
         public int UserId { get; set; }
         public DateTime PurchaseDateTime{ get; set; }
         public string Sha512key{ get; set; }
+        
+        public override string ToString()
+        {
+            return Sha512key;
+        }
     }
 }

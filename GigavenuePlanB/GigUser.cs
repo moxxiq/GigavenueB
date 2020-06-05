@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace GigavenuePlanB
@@ -11,6 +12,7 @@ namespace GigavenuePlanB
             UserId = userId;
             Firstname = firstname;
             Lastname = lastname;
+            _invitations = new List<Invitation>(); 
         }
         
         public GigUser(bool readConsole = false, int userId = 0)
@@ -37,9 +39,22 @@ namespace GigavenuePlanB
         public string Lastname { get; set; }
         public string Email { get; set; }
         public int UserId { get; set; }
+        
+        public void buyTicket(Event ev)
+        {    
+            Console.WriteLine($"Hey, {Firstname}, for {ev.Name}, there are these zones:");
+            ev.printZones();
+            Console.WriteLine($"Which one you want to buy? ");
+            ev.bookTicket(int.Parse(Console.ReadLine()),this);
+        }
+        
         public override string ToString()
         {
             return $"{UserId.ToString()} {Email} {Firstname} {Lastname}";
         }
+        
+        
+
+        private List<Invitation> _invitations;
     }
 }

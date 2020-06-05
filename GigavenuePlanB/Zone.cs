@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GigavenuePlanB
 {
-    public class Zone
+    public abstract class Zone
     {
         public Zone(string name, int capacity)
         {

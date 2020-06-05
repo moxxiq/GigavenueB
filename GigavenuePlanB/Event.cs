@@ -7,10 +7,11 @@ namespace GigavenuePlanB
 {
     public class Event
     {
-        public Event(string name, string information = "None")
+        public Event(string name, string information = "None", List<ZoneComponent> zones = [new SolidZone()])
         {
             Name = name;
             Information = information;
+            Zones = zones;
         }
         
         public int EventId { get;set;}
@@ -19,6 +20,22 @@ namespace GigavenuePlanB
         public string Image { get; set; }
         public string Information { get; set; }
         public DateTime EventDate { get; set; }
+        
+        public List<ZoneComponent> Zones { get; set; }
+
+        public void printZones()
+        {
+            foreach (zone in Zones)
+            {
+                Console.WriteLine(zone.toString());
+            }
+        }
+        
+        public Invitation bookTicket(int zone, GigUser user)
+        {
+            return Zones[zone].bookSeat(user);
+        }
+
 
     }
 }
