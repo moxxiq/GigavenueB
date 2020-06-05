@@ -12,7 +12,6 @@ namespace GigavenuePlanB
         }
         public int Number { get;}
         public int Capacity{ get; }
-        public string ZoneType { get; }
         public int EventId { get; }
         public virtual Invitation BookSeat(int userId)
         {
