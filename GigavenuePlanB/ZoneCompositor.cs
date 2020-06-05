@@ -23,5 +23,15 @@ namespace GigavenuePlanB
             }
             return result;
         }
+
+        public override string ToString()
+        {
+            string result = "";
+            foreach (ZoneComponent component in this.childrenZones)
+            {
+                result += component.ToString()+'\n';
+            }
+            return result;
+        }
     }
 }

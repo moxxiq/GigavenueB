@@ -9,10 +9,9 @@ namespace GigavenuePlanB
             Capacity = capacity;
             seatsBooked = 0;
         }
-        public int Number { get;}
-        public int Capacity{ get; }
-        public string ZoneType { get; }
-        public int EventId { get; }
+        public override int Number { get;}
+        public override int Capacity{ get; }
+        public override int EventId { get; }
         private int seatsBooked;
         public override Invitation BookSeat(int userId)
         {

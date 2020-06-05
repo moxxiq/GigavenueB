@@ -10,9 +10,9 @@ namespace GigavenuePlanB
         public ZoneComponent()
         {
         }
-        public int Number { get;}
-        public int Capacity{ get; }
-        public int EventId { get; }
+        public virtual int Number { get;}
+        public virtual  int Capacity{ get; }
+        public virtual  int EventId { get; }
         public virtual Invitation BookSeat(int userId)
         {
             throw new NotImplementedException();

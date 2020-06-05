@@ -18,10 +18,13 @@ namespace GigavenuePlanB
                 }
             }
         }
-        public int Number { get;}
+        public override int Number { get;}
         public int Size{ get; }
-        public string ZoneType { get; }
-        public int EventId { get; }
+        public override int EventId { get; }
+        public override int Capacity
+        {
+            get { return Size * Size; }
+        }
         private bool[,] bookedSeats;
         public override Invitation BookSeat(int userId)
         {
